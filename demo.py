@@ -1,4 +1,3 @@
-import random
 import matplotlib.pyplot as plt
 from Intersect import SweepIntersector
 import networkx as nx

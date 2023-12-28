@@ -34,9 +34,7 @@ def distance_proportion(pos):
 def vis_quality(G,pos):
     return count_intersect(G,pos)+1-distance_proportion(pos)
 
-def generate_best_viz(G,pos=None,seed=10,iterations=100):
-    pop_size=5
-    num_gen=4
+def generate_best_viz(G,pos=None,seed=10,iterations=100,pop_size=6,num_gen=8):
     if pos == None:
         new_pos = nx.spring_layout(G,seed,iterations) #Передаем конкретное значение параметра seed, чтобы всегда получалось одно и то же размещение вершин
     else:
