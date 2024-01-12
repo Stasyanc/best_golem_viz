@@ -99,6 +99,7 @@ class Graph_gui:
             self.canvas.draw()
             self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
     def on_closing(self):
+        self.master.destroy()
         self.master.quit()
 
         
