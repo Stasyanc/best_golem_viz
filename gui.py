@@ -95,6 +95,7 @@ class Graph_gui:
             stop1_t=time.time()
             time1=stop1_t-start1_t
             self.time_1_t.config(state=tk.NORMAL)
+            self.time_1_t.delete("1.0",tk.END)
             self.time_1_t.insert("1.0",time1)
             self.time_1_t.config(state=tk.DISABLED)
             fit = best_viz.vis_quality(target_graph,pos)
@@ -103,16 +104,20 @@ class Graph_gui:
             stop2_t=time.time()
             time2=stop2_t-start2_t
             self.time_2_t.config(state=tk.NORMAL)
+            self.time_2_t.delete("1.0",tk.END)
             self.time_2_t.insert("1.0",time2)
             self.time_2_t.config(state=tk.DISABLED)
             self.time_3_t.config(state=tk.NORMAL)
+            self.time_3_t.delete("1.0",tk.END)
             self.time_3_t.insert("1.0",time2-time1)
             self.time_3_t.config(state=tk.DISABLED)
             self.target_graph=target_graph
             self.fits.config(state=tk.NORMAL)
+            self.fits.delete("1.0",tk.END)
             self.fits.insert("1.0",fit)
             self.fits.config(state=tk.DISABLED)
             self.best_fits.config(state=tk.NORMAL)
+            self.best_fits.delete("1.0",tk.END)
             self.best_fits.insert("1.0",best_fit)
             self.best_fits.config(state=tk.DISABLED)
             self.titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)]
