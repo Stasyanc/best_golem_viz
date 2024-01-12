@@ -20,10 +20,10 @@ class Graph_gui:
         self.canvas = FigureCanvasTkAgg(figure,self.graph_frame)
         self.canvas.draw()
         self.first_str=tk.Frame(self.master)
-        self.fits=tk.Text(self.first_str,width=5,height=1)
+        self.fits=tk.Text(self.first_str,width=10,height=1)
         self.fits.insert("1.0",fit)
         self.fits_l=tk.Label(self.first_str,text="Old graph fits")
-        self.best_fits=tk.Text(self.first_str,width=5,height=1)
+        self.best_fits=tk.Text(self.first_str,width=10,height=1)
         self.best_fits.insert("1.0",best_fit)
         self.best_fits_l=tk.Label(self.first_str,text="New graph fits")
         self.count_v_t=tk.Text(self.first_str,width=5,height=1)
@@ -88,6 +88,8 @@ class Graph_gui:
             fit = best_viz.vis_quality(target_graph,pos)
             best_pos,best_fit = best_viz.generate_best_viz(target_graph,pos,seed=start_z,iterations=count_it,pop_size=size_p,num_gen=count_p)
             self.target_graph=target_graph
+            self.fits.insert("1.0",fit)
+            self.best_fits.insert("1.0",best_fit)
             self.titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)]
             self.poses=[pos,best_pos]
             draw_graphs_subplots(self.target_graph,self.target_graph,titles=self.titles,show=False,poses=self.poses)
