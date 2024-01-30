@@ -16,7 +16,7 @@ class Graph_gui:
         self.fits=tk.Text(self.first_str,width=18,height=1)
         self.fits_l=tk.Label(self.first_str,text="Old graph fits")
         self.best_fits=tk.Text(self.first_str,width=18,height=1)
-        self.best_fits_l=tk.Label(self.first_str,text="New graph fits")
+        self.best_fits_l=tk.Label(self.first_str,text="Best graph fits")
         self.count_v_t=tk.Text(self.first_str,width=5,height=1)
         self.count_v_t.insert("1.0",size)
         self.count_v=tk.Label(self.first_str,text="Введите количество вершин")
@@ -47,6 +47,8 @@ class Graph_gui:
         self.fit_old_t=tk.Text(self.first_str,width=10,height=1)
         self.fit_old=tk.Label(self.first_str,text="New Graph")
         self.fit_new_t=tk.Text(self.first_str,width=10,height=1)
+        self.len_fit_tabl=tk.Text(self.third_str,width=5,height=1)
+        self.len_fit_tabl_t=tk.Label(self.third_str,text="Всего размещений")
         self.master.protocol("WM_DELETE_WINDOW", self.on_closing)
         self.canvas=None
         self.update()
@@ -79,6 +81,8 @@ class Graph_gui:
         self.start_z_t.pack(side=tk.LEFT)
         self.count_it.pack(side=tk.LEFT)
         self.count_it_t.pack(side=tk.LEFT)
+        self.len_fit_tabl.pack(side=tk.RIGHT)
+        self.len_fit_tabl_t.pack(side=tk.RIGHT)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH,expand=True)
 
     def update(self):
@@ -100,7 +104,7 @@ class Graph_gui:
             self.time_1_t.config(state=tk.DISABLED)
             fit = best_viz.vis_quality(target_graph,pos)
             start2_t=time.time()
-            best_pos,best_fit = best_viz.generate_best_viz(target_graph,pos,seed=start_z,iterations=count_it,pop_size=size_p,num_gen=count_p)
+            best_pos,best_fit,len_fit_table = best_viz.generate_best_viz(target_graph,pos,seed=start_z,iterations=count_it,pop_size=size_p,num_gen=count_p)
             stop2_t=time.time()
             time2=stop2_t-start2_t
             self.time_2_t.config(state=tk.NORMAL)
@@ -119,6 +123,8 @@ class Graph_gui:
             self.best_fits.config(state=tk.NORMAL)
             self.best_fits.delete("1.0",tk.END)
             self.best_fits.insert("1.0",best_fit)
+            self.len_fit_tabl.delete("1.0",tk.END)
+            self.len_fit_tabl.insert("1.0",len_fit_table)
             self.best_fits.config(state=tk.DISABLED)
             self.titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)]
             self.poses=[pos,best_pos]
@@ -135,12 +141,9 @@ class Graph_gui:
 
         
 def create_window(size=16):
-    start_t=time.time()
     root = tk.Tk()
     app = Graph_gui(root,size)
     app.window()
     root.geometry("1200x700")
-    start_t=time.time()
     app.master.mainloop()
-
     return app.target_graph

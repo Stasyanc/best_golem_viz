@@ -68,4 +68,4 @@ def generate_best_viz(G,pos=None,seed=10,iterations=100,pop_size=6,num_gen=8):
                     best_pos=new_pos
         #Селекция
         pop=sorted(pop+new_ind,key=lambda p: fit_table[p],reverse=True)[:pop_size]
-    return best_pos,best_fit
+    return best_pos,best_fit,len(fit_table)

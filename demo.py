@@ -12,8 +12,9 @@ def test_viz(size=16):
     target_graph = generate_labeled_graph('tree', size, node_labels=node_types)
     pos=nx.spring_layout(target_graph)
     fit = best_viz.vis_quality(target_graph,pos)
-    best_pos,best_fit = best_viz.generate_best_viz(target_graph,pos)
+    best_pos,best_fit,len_fit_table = best_viz.generate_best_viz(target_graph,pos)
     end_t=time.time()
+    print("Всего размещений",len_fit_table)
     print(f"Время работы программы {(end_t-start_t):.03f}s")
     draw_graphs_subplots(target_graph, target_graph, titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)],poses=[pos,best_pos])
     return target_graph
