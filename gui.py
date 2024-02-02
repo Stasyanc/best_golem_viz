@@ -128,6 +128,7 @@ class Graph_gui:
             self.best_fits.config(state=tk.DISABLED)
             self.titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)]
             self.poses=[pos,best_pos]
+            plt.close()
             draw_graphs_subplots(self.target_graph,self.target_graph,titles=self.titles,show=False,poses=self.poses)
             if self.canvas!=None:
                 self.canvas.get_tk_widget().destroy()
