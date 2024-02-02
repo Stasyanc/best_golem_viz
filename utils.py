@@ -100,7 +100,7 @@ def draw_graphs_subplots(*graphs: nx.Graph,
         show: if plt.show() is necessary
         path_to_save: path to dir where to save results
     """
-
+    plt.close()
     graphs = ensure_wrapped_in_sequence(graphs)
     titles = [f'Graph #{i + 1}' for i in range(len(graphs))] if not titles else titles
     poses=[nx.spring_layout(G) for G in graphs] if not poses else poses
