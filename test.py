@@ -39,7 +39,7 @@ def test_viz(seed,iteration,pop_size,num_gen,size):
 
 
 if __name__ == '__main__':
-    count=5 #Количество запусков
+    count=100 #Количество запусков
     N=16 #Размер графа
     seed=10 #Затравка
     iteration=100 #Количество итераций
