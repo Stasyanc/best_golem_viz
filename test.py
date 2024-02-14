@@ -27,7 +27,8 @@ def test_viz(seed,iteration,pop_size,num_gen,size):
     test_table_f.write(str(best_fit)+'\t')
     test_table_f.write(str(end_t1-start_t1)+'\t')
     test_table_f.write(str(end_t2-start_t2)+'\t')
-    test_table_f.write(str(mv)+'\n')
+    test_table_f.write(str(mv)+'\t')
+    test_table_f.write(str(len_fit_table)+'\n')
     plt.close()
     s=str(j)
     s="0"*(4-len(s))+s
@@ -46,7 +47,7 @@ if __name__ == '__main__':
     num_gen=2 #Количество поколений
     test_table_f=open('test/test_table.txt','w')
     test_max_v_f=open('test/test_max_vertex.txt','w')
-    test_table_f.write("Номер теста\tКол верш\tРазм поп\tКол пок\tКол ит\tЗатравка\tФитнес было\tФитнес стало\tВремя было\tВремя стало\tМакс степень вершины\n")
+    test_table_f.write("Номер теста\tКол верш\tРазм поп\tКол пок\tКол ит\tЗатравка\tФитнес было\tФитнес стало\tВремя было\tВремя стало\tМакс степень вершины\tВсего размещений\n")
     for j in range(1,count+1):
         test_viz(size=N,seed=seed,iteration=iteration,pop_size=pop_size,num_gen=num_gen)
     test_table_f.close()
