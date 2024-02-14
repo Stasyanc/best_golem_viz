@@ -47,3 +47,5 @@ if __name__ == '__main__':
     test_table_f.write("Номер теста\tКол верш\tРазм поп\tКол пок\tКол ит\tЗатравка\tФитнес было\tФитнес стало\tВремя было\tВремя стало\tМакс степень вершины\n")
     for j in range(1,count+1):
         test_viz(size=N,seed=seed,iteration=iteration,pop_size=pop_size,num_gen=num_gen)
+    test_table_f.close()
+    test_max_v_f.close()
