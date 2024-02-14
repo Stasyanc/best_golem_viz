@@ -14,9 +14,9 @@ class Graph_gui:
         self.graph_frame = tk.Frame(self.master)
         self.first_str=tk.Frame(self.master)
         self.fits=tk.Text(self.first_str,width=18,height=1)
-        self.fits_l=tk.Label(self.first_str,text="Old graph fits")
+        self.fits_l=tk.Label(self.first_str,text="Было")
         self.best_fits=tk.Text(self.first_str,width=18,height=1)
-        self.best_fits_l=tk.Label(self.first_str,text="Best graph fits")
+        self.best_fits_l=tk.Label(self.first_str,text="Стало")
         self.count_v_t=tk.Text(self.first_str,width=5,height=1)
         self.count_v_t.insert("1.0",size)
         self.count_v=tk.Label(self.first_str,text="Введите количество вершин")
@@ -43,9 +43,9 @@ class Graph_gui:
         self.time_1_t=tk.Text(self.third_str,width=18,height=1)
         self.time_2_t=tk.Text(self.third_str,width=18,height=1)
         self.time_3_t=tk.Text(self.third_str,width=18,height=1)
-        self.fit_old=tk.Label(self.first_str,text="Old Graph")
+        self.fit_old=tk.Label(self.first_str,text="Было")
         self.fit_old_t=tk.Text(self.first_str,width=10,height=1)
-        self.fit_old=tk.Label(self.first_str,text="New Graph")
+        self.fit_old=tk.Label(self.first_str,text="Стало")
         self.fit_new_t=tk.Text(self.first_str,width=10,height=1)
         self.len_fit_tabl=tk.Text(self.third_str,width=5,height=1)
         self.len_fit_tabl_t=tk.Label(self.third_str,text="Всего размещений")
@@ -126,7 +126,7 @@ class Graph_gui:
             self.len_fit_tabl.delete("1.0",tk.END)
             self.len_fit_tabl.insert("1.0",len_fit_table)
             self.best_fits.config(state=tk.DISABLED)
-            self.titles=['Old Graph: '+str(fit), 'Best Graph: '+str(best_fit)]
+            self.titles=['Было: '+str(fit), 'Стало: '+str(best_fit)]
             self.poses=[pos,best_pos]
             plt.close()
             draw_graphs_subplots(self.target_graph,self.target_graph,titles=self.titles,show=False,poses=self.poses)
