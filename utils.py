@@ -120,7 +120,7 @@ def draw_graphs_subplots(*graphs: nx.Graph,
     if show:
         plt.show()
     if path_to_save:
-        plt.savefig(os.path.join(path_to_save, 'graphs_subplots.png'))
+        plt.savefig(path_to_save)
 
 
 def _get_node_colors_and_labels(graph: nx.Graph,

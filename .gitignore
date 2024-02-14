@@ -2,7 +2,5 @@
 __pycache__/
 *.py[cod]
 *$py.class
-test/
 venv/
-test.txt
-test.py
+*.png
