@@ -4,5 +4,4 @@ __pycache__/
 *$py.class
 venv/
 *.png
-test/test_table.txt
-test/test_max_vertex.txt
+*.txt
