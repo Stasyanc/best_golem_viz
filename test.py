@@ -42,8 +42,8 @@ if __name__ == '__main__':
     N=16 #Размер графа
     seed=10 #Затравка
     iteration=100 #Количество итераций
-    pop_size=6 #Размер популяции
-    num_gen=8 #Количество поколений
+    pop_size=20 #Размер популяции
+    num_gen=2 #Количество поколений
     test_table_f=open('test/test_table.txt','w')
     test_max_v_f=open('test/test_max_vertex.txt','w')
     test_table_f.write("Номер теста\tКол верш\tРазм поп\tКол пок\tКол ит\tЗатравка\tФитнес было\tФитнес стало\tВремя было\tВремя стало\tМакс степень вершины\n")
