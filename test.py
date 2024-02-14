@@ -39,8 +39,10 @@ def test_viz(seed,iteration,pop_size,num_gen,size):
 
 
 if __name__ == '__main__':
-    count=100 #Количество запусков
-    N=16 #Размер графа
+    print("Введите количество вершин")
+    N=int(input()) #Размер графа
+    print("Введите количество графов")
+    count=int(input()) #Количество запусков
     seed=10 #Затравка
     iteration=100 #Количество итераций
     pop_size=20 #Размер популяции
