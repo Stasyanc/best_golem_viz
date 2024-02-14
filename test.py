@@ -29,14 +29,16 @@ def test_viz(seed,iteration,pop_size,num_gen,size):
     test_table_f.write(str(end_t2-start_t2)+'\t')
     test_table_f.write(str(mv)+'\n')
     plt.close()
-    draw_graphs_subplots(target_graph, target_graph,poses=[pos,best_pos],show=False,path_to_save="test/pic/"+str(size)+"_"+str(j)+".png",titles=["Было:"+str(fit),"Стало:"+str(best_fit)])
+    s=str(j)
+    s="0"*(4-len(s))+s
+    draw_graphs_subplots(target_graph, target_graph,poses=[pos,best_pos],show=False,path_to_save="test/pic/"+str(size)+"_"+s+".png",titles=["Было:"+str(fit),"Стало:"+str(best_fit)])
     print(str(j)+" граф:\t",file=test_max_v_f)
     print(target_graph._adj,file=test_max_v_f)
     return target_graph
 
 
 if __name__ == '__main__':
-    count=100 #Количество запусков
+    count=5 #Количество запусков
     N=16 #Размер графа
     seed=10 #Затравка
     iteration=100 #Количество итераций
